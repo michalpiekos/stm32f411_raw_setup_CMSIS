@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "name": "linux-gcc-x64",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceRoot}/Drivers/CMSIS/Include",
+                "${workspaceRoot}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+                "/usr/lib/arm-none-eabi/include",
+                "/usr/lib/arm-none-eabi/include/c++/10.3.1",
+                "/usr/lib/gcc/arm-none-eabi/10.3.1/include",
+                "/usr/lib/gcc/arm-none-eabi/10.3.1/include-fixed",
+                "/usr/lib/arm-none-eabi/include/machine",
+                "/usr/lib/arm-none-eabi/include/nano",
+                "/usr/lib/arm-none-eabi/include/sys",
+                "/home/mplibc/stm32hal/**"
+            ],
+            "defines": [
+                "STM32F4xx",
+                "STM32F411xE"
+            ],
+            "cStandard": "${default}",
+            "cppStandard": "${default}",
+            "intelliSenseMode": "linux-gcc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceRoot}",
+                    "${workspaceRoot}/Drivers/CMSIS/Include",
+                    "${workspaceRoot}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+                    "/usr/lib/arm-none-eabi/include",
+                    "/usr/lib/arm-none-eabi/include/c++/10.3.1",
+                    "/usr/lib/gcc/arm-none-eabi/10.3.1/include",
+                    "/usr/lib/gcc/arm-none-eabi/10.3.1/include-fixed",
+                    "/home/mplibc/stm32hal/drivers",
+                    "/home/mplibc/stm32hal/debug"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "${workspaceRoot}/.vscode/browse.vc.db"
+            },
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}

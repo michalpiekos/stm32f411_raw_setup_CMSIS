@@ -1,0 +1,71 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build all",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "all",
+                "-j8"
+            ],
+            "dependsOn": "Build clean",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build clean",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ]
+        },
+        {
+            "label": "Flash BMP",
+            "type": "shell",
+            "group": "build",
+            "dependsOn": "Build all",
+            "command": "/usr/bin/gdb-multiarch",
+            "args": [
+                "./build/app.elf",
+                "-batch",
+                "-ex",
+                "target extended-remote /dev/ttyACM0",
+                // "-ex",
+                // "monitor connect_srst enable",
+                "-ex",
+                "monitor swdp_scan",
+                "-ex",
+                "att 1",
+                "-ex",
+                "load"
+            ]
+        },
+        {
+            "label": "Flash STLINK",
+            "type": "shell",
+            "group": "build",
+            "dependsOn": "Build all",
+            "command": "/usr/bin/st-flash",
+            "args": [
+                "write",
+                "./build/app.bin",
+                "0x08000000"
+            ]
+        },
+        {
+            "label": "Flash DFU",
+            "type": "shell",
+            "group": "build",
+            "dependsOn": "Build all",
+            "command": "/usr/bin/dfu-util -a 0 -s 0x08000000:leave -D ${workspaceFolder}/build/app.bin"
+        }
+    ]
+}

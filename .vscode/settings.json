@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "main.h": "c",
+        "system_stm32f4xx.h": "c"
+    },
+    "cortex-debug.gdbPath": "/usr/bin/arm-none-eabi-gdb",
+    "cortex-debug.stutilPath": "/usr/bin/st-util",
+    "C_Cpp.errorSquiggles": "disabled"
+}

@@ -1,0 +1,68 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "STlink launch",
+      "cwd": "${workspaceRoot}",
+      "executable": "${workspaceRoot}/build/${workspaceFolderBasename}.elf",
+      "request": "launch",
+      "type": "cortex-debug",
+      "servertype": "stutil",
+      "device": "STM32F411",
+      "interface": "swd",
+      "runToEntryPoint": "main",
+      "preLaunchTask": "Build all", // configured in tasks.json
+      // "preLaunchCommands": ["Build all"], // you can execute command instead of task
+      "svdFile": "${workspaceRoot}/STM32F411.svd",
+      "swoConfig": {} // currently (v1.7.0) not supported
+  },
+  {
+      "name": "STlink attach",
+      "cwd": "${workspaceRoot}",
+      "executable": "${workspaceRoot}/build/${workspaceFolderBasename}.elf",
+      "request": "attach",
+      "type": "cortex-debug",
+      "servertype": "stutil",
+      "device": "STM32F411",
+      "interface": "swd",
+      "runToEntryPoint": "main",
+      "preLaunchTask": "Build all", // configured in tasks.json
+      // "preLaunchCommands": ["Build all"], // you can execute command instead of task
+      "svdFile": "${workspaceRoot}/STM32F411.svd",
+      "swoConfig": {} // currently (v1.7.0) not supported
+  },
+    {
+      "name": "BMP attach",
+      "cwd": "${workspaceRoot}",
+      "executable": "${workspaceRoot}/build/${workspaceFolderBasename}.elf",
+      "request": "attach",
+      "type": "cortex-debug",
+      "servertype": "bmp",
+      "interface": "swd",
+      "device": "STM32F411",
+      "BMPGDBSerialPort": "/dev/ttyACM0",
+      "svdFile": "${workspaceRoot}/STM32F411.svd"
+    },
+    {
+      "name": "BMP Debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "${workspaceRoot}/build/${workspaceFolderBasename}.elf",
+      "request": "launch",
+      "preLaunchTask": "Build all",
+      "type": "cortex-debug",
+      "servertype": "bmp",
+      "interface": "swd",
+      "device": "STM32F411",
+      "BMPGDBSerialPort": "/dev/ttyACM0",
+      "runToEntryPoint": "main",
+      "svdFile": "${workspaceRoot}/STM32F411.svd",
+      "preRestartCommands": [
+        "file ./build/${workspaceFolderBasename}.elf",
+        "load",
+        // "add-symbol-file ./build/release/release.elf 0x08002030",
+        "enable breakpoint",
+        "monitor reset"
+      ]
+    },
+  ]
+}
