@@ -12,8 +12,7 @@
                 "/usr/lib/gcc/arm-none-eabi/10.3.1/include-fixed",
                 "/usr/lib/arm-none-eabi/include/machine",
                 "/usr/lib/arm-none-eabi/include/nano",
-                "/usr/lib/arm-none-eabi/include/sys",
-                "/home/mplibc/stm32hal/**"
+                "/usr/lib/arm-none-eabi/include/sys"
             ],
             "defines": [
                 "STM32F4xx",
@@ -30,9 +29,7 @@
                     "/usr/lib/arm-none-eabi/include",
                     "/usr/lib/arm-none-eabi/include/c++/10.3.1",
                     "/usr/lib/gcc/arm-none-eabi/10.3.1/include",
-                    "/usr/lib/gcc/arm-none-eabi/10.3.1/include-fixed",
-                    "/home/mplibc/stm32hal/drivers",
-                    "/home/mplibc/stm32hal/debug"
+                    "/usr/lib/gcc/arm-none-eabi/10.3.1/include-fixed"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": "${workspaceRoot}/.vscode/browse.vc.db"
